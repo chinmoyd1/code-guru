@@ -1,0 +1,79 @@
+<html>
+<head>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="../prism/prism.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <h1>Longest Common Subsequence</h1>
+            <hr>
+            <p>Given two strings A and B. Find the longest common sequence ( A sequence which does not need to be contiguous), which is common in both the strings.</p>
+            <p>You need to return the length of such longest common subsequence.</p>
+            <strong>Input Format:</strong>
+            <div class="special">
+                <p>First argument is an string A.</p>
+                <p>Second argument is an string B.</p>
+            </div>
+            <strong>Output Format:</strong>
+            <div class="special">
+                <p>Return the length of such longest common subsequence between string A and string B.</p>
+            </div>
+            <strong>Constraints:</strong>
+            <div class="special">
+                <p>1 &lt= |A|, |B| &lt= 1005</p>
+            </div>
+            <strong>Examples:</strong>
+<div class="special">
+<pre>
+Input 1:
+    A = "abbcdgf"
+    B = "bbadcgf"
+
+Output 1:
+    5
+
+Explanation 1:
+    The longest common subsequence is "bbcgf", which has a length of 5
+</pre>
+</div>
+</div>
+
+<div class="handler"></div>
+
+<div class="box">
+<pre>
+<code class="language-java line-numbers">public class Solution {
+    public int solve(String A, String B) {
+        return LCS(A, B);
+    }
+    public int LCS(String A, String B, int alen, int blen) {
+        if (alen < 0 || blen < 0)
+           return 0;
+        if (A.charAt(alen) == B.charAt(blen))
+            return 1 + LCS(A, B, alen-1, blen-1);
+        return Math.max(LCS(A, B, alen-1, blen), LCS(A, B, alen, blen-1));
+    }
+    public int LCS(String A, String B) {
+        int[][] dp = new int[A.length()+1][B.length()+1];
+        for (int i=0; i<=A.length(); i++) {
+            for (int j=0; j<=B.length(); j++) {
+                if (i == 0 || j == 0)
+                    dp[i][j] = 0;
+                else if (A.charAt(i-1) == B.charAt(j-1))
+                    dp[i][j] = 1 + dp[i-1][j-1];
+                else
+                    dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
+            }
+        }
+        return dp[A.length()][B.length()];
+    }
+}
+</code>    
+</pre>
+</div>
+</div>
+    <script src="../script.js"></script>
+    <script src="../prism/prism.js"></script>
+</body>
+</html>

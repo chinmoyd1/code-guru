@@ -1,0 +1,113 @@
+body {
+    padding: 0;
+    margin: 0 10px;
+    background-color:#353535;
+    min-height: 100vh;
+}
+
+.wrapper {
+    /* margin: 1vh 8px; */
+    background-color: #353535;
+    color: #444;
+    /* Use flexbox */
+    display: flex;
+}
+
+/* width */
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #353535; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+hr {
+    border: 1px solid MediumSeaGreen;
+}
+
+.box {
+    background-color: #272822;
+    box-shadow: rgb(0 0 0 / 20%) 1px 1px 2px 1px;
+    color: white;
+    border-radius: 1px;
+    padding: 20px;
+    font-size: 1rem;
+    margin: 1vh 0;
+    height: 97vh;
+    overflow-y: auto;
+
+    /* Use box-sizing so that element's outerwidth will match width property */
+    box-sizing: border-box;
+
+    /* Allow box to grow and shrink, and ensure they are all equally sized */
+    flex: 1 1 auto;
+}
+
+.box h1 {
+    color: MediumSeaGreen;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Arial";
+}
+
+.box p {
+    font-size: 15px;
+    font-family: "Arial";
+}
+
+.box ol {
+    font-size: 15px;
+    font-family: "Arial";
+}
+
+.box strong {
+    font-size: 14px;
+    font-family: "Arial";
+}
+
+.special {
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #353535;
+}
+
+.handler {
+    width: 10px;
+    padding: 0;
+    background-color:#353535;
+    cursor: col-resize;
+    flex: 0 0 auto;
+}
+
+.handler::before {
+    content: '';
+    display: block;
+    height: 100%;
+    margin: 0;
+}
+
+@media screen and (max-width: 900px) {
+    .wrapper {
+        flex-direction: column;
+    }
+    .box {
+        height: auto;
+    }
+    .handler {
+        display: none;
+    }
+}

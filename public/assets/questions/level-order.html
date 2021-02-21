@@ -1,0 +1,84 @@
+<html>
+<head>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="../prism/prism.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <h1>Level Order</h1>
+            <hr>
+            <p>Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).</p>
+            <strong>Example:</strong>
+            <p>Given binary tree</p>
+<div class="special">
+<pre>
+    3
+   / \
+  9  20
+    /  \
+   15   7
+</pre>
+</div>
+<p>return its level order traversal as:</p>
+<div class="special">
+<pre>
+[
+    [3],
+    [9,20],
+    [15,7]
+]
+</pre>
+</div>
+<p>Also think about a version of the question where you are asked to do a level order traversal of the tree when depth of the tree is much greater than number of nodes on a level.</p>
+</div>
+
+<div class="handler"></div>
+
+<div class="box">
+<pre>
+<code class="language-java line-numbers">/**
+* Definition for binary tree
+* class TreeNode {
+*     int val;
+*     TreeNode left;
+*     TreeNode right;
+*     TreeNode(int x) {
+*      val = x;
+*      left=null;
+*      right=null;
+*     }
+* }
+*/
+public class Solution {
+    public ArrayList&ltArrayList&ltInteger&gt&gt levelOrder(TreeNode A) {
+        ArrayList&ltArrayList&ltInteger&gt&gt sol = new ArrayList&ltArrayList&ltInteger&gt&gt();
+        if (A == null) return sol;
+        
+        Queue&ltTreeNode&gt q = new LinkedList&lt&gt();
+        q.offer(A);
+        
+        while (!q.isEmpty()) {
+            int size = q.size();
+            ArrayList&ltInteger&gt level = new ArrayList&ltInteger&gt();
+            for (int i=0; i&ltsize; i++) {
+                TreeNode node = q.poll();
+                level.add(node.val);
+                if (node.left != null)
+                    q.offer(node.left);
+                if (node.right != null)
+                    q.offer(node.right);
+            }
+            sol.add(level);
+        }
+        return sol;
+    }
+}
+</code>    
+</pre>
+</div>
+</div>
+    <script src="../script.js"></script>
+    <script src="../prism/prism.js"></script>
+</body>
+</html>

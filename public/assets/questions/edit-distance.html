@@ -1,0 +1,92 @@
+<html>
+<head>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="../prism/prism.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <h1>Edit Distance</h1>
+            <hr>
+            <p>Given two strings A and B, find the minimum number of steps required to convert A to B. (each operation is counted as 1 step.)</p>
+            <p>You have the following 3 operations permitted on a word:</p>
+            <ol>
+                <li>Insert a character</li>
+                <li>Delete a character</li>
+                <li>Replace a character</li>
+            </ol>
+            <strong>Input Format:</strong>
+            <div class="special">
+                <p>The first argument of input contains a string, A.</p>
+                <p>The second argument of input contains a string, B.</p>
+            </div>
+            <strong>Output Format:</strong>
+            <div class="special">
+                <p>Return an integer, representing the minimum number of steps required.</p>
+            </div>
+            <strong>Constraints:</strong>
+            <div class="special">
+                <p>1 &lt= length(A), length(B) &gt= 450</p>
+            </div>
+            <strong>Examples:</strong>
+<div class="special">
+<pre>
+Input 1:
+    A = "abad"
+    B = "abac"
+
+Output 1:
+    1
+
+Explanation 1:
+    Operation 1: Replace d with c.
+
+Input 2:
+    A = "Anshuman"
+    B = "Antihuman"
+
+Output 2:
+    2
+
+Explanation 2:
+    => Operation 1: Replace s with t.
+    => Operation 2: Insert i.
+</pre>
+</div>
+</div>
+
+<div class="handler"></div>
+
+<div class="box">
+<pre>
+<code class="language-java line-numbers">public class Solution {
+    public int minDistance(String A, String B) {
+        int[][] dp = new int[A.length()][B.length()]; 
+        return MED(A, B, 0, 0, dp);
+    }
+    public int MED(String A, String B, int alen, int blen, int[][] dp) {
+        if (alen == A.length())
+            return B.length()-blen;
+        if (blen == B.length())
+            return A.length()-alen;
+        if (dp[alen][blen] != 0)
+            return  dp[alen][blen];
+        if (A.charAt(alen) == B.charAt(blen)) {
+            dp[alen][blen] = MED(A, B, alen+1, blen+1, dp);
+        } else {
+            int insertion = 1 + MED(A, B, alen, blen+1, dp);
+            int deletion = 1 + MED(A, B, alen+1, blen, dp);
+            int replacement = 1 + MED(A, B, alen+1, blen+1, dp);
+            dp[alen][blen] = Math.min(Math.min(insertion, deletion), replacement);
+        }
+        return dp[alen][blen];
+    }
+} 
+</code>    
+</pre>
+</div>
+</div>
+    <script src="../script.js"></script>
+    <script src="../prism/prism.js"></script>
+</body>
+</html>

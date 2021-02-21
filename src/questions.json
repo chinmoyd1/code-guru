@@ -1,0 +1,78 @@
+{
+    "Sliding Window": [
+        {
+            "topic": "Maximum Sum Subarray of Size k",
+            "html": "assets/questions/maximum-sum-subarray-of-size-k.html",
+            "difficulty": "easy"
+        },
+        {
+            "topic": "Smallest Subarray with a Given Sum",
+            "html": "assets/questions/smallest-subarray-with-a-given-sum.html",
+            "difficulty": "easy"
+        },
+        {
+            "topic": "Longest Substring With K Distinct Characters",
+            "html": "assets/questions/longest-substring-with-k-distinct-characters.html",
+            "difficulty": "medium"
+        },
+        {
+            "topic": "Fruits Into Baskets",
+            "html": "assets/questions/fruits-into-baskets.html",
+            "difficulty": "medium"
+        },
+        {
+            "topic": "No Repeat Substring",
+            "html": "assets/questions/no-repeat-substring.html",
+            "difficulty": "hard"
+        },
+        {
+            "topic": "Longest Substring With Same Letters After Replacement",
+            "html": "assets/questions/longest-substring-with-same-letters-after-replacement.html",
+            "difficulty": "hard"
+        },
+        {
+            "topic": "Longest Subarray With Ones After Replacement",
+            "html": "assets/questions/longest-subarray-with-ones-after-replacement.html",
+            "difficulty": "hard"
+        },
+        {
+            "topic": "Permutation in a String",
+            "html": "assets/questions/permutation-in-a-string.html",
+            "difficulty": "hard"
+        },
+        {
+            "topic": "String Anagrams",
+            "html": "assets/questions/string-anagrams.html",
+            "difficulty": "hard"
+        },
+        {
+            "topic": "Smallest Window containing Substring",
+            "html": "assets/questions/smallest-window-containing-substring.html",
+            "difficulty": "hard"
+        },
+        {
+            "topic": "Words Concatenation",
+            "html": "assets/questions/words-concatenation.html",
+            "difficulty": "hard"
+        }
+    ],
+    "Dynamic Programming": [
+        {
+            "topic": "Longest Common Subsequence",
+            "html": "assets/questions/longest-common-subsequence.html",
+            "difficulty": "easy"
+        },
+        {
+            "topic": "Edit Distance",
+            "html": "assets/questions/edit-distance.html",
+            "difficulty": "medium"
+        }
+    ],
+    "Graph": [
+        {
+            "topic": "Level Order",
+            "html": "assets/questions/level-order.html",
+            "difficulty": "easy"
+        }
+    ]
+}
