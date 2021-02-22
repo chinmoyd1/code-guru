@@ -1,0 +1,81 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="../prism/prism.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <h1>Repeating Sub-Sequence</h1>
+            <hr>
+            <p>Given a string A, find length of the longest repeating sub-sequence such that the two subsequence don’t have same string character at same position,</p>
+            <strong>Input Format:</strong>
+            <div class="special">
+                <p>The first and the only argument of input contains a string A.</p>
+            </div>
+            <strong>Output Format:</strong>
+            <div class="special">
+                <p> Number of repeating characters </p>
+            </div>
+            <strong>Constraints:</strong>
+            <div class="special">
+                <p>1 &lt= |A| &lt= 100</p>
+            </div>
+            <strong>Examples:</strong>
+<div class="special">
+<pre>
+Input 1:
+    A = "abab"
+
+Output 1:
+    2
+
+Explanation 1:
+    "ab" is repeated.
+
+Input 2:
+    A = "abba"
+
+Output 2:
+    0
+
+Explanation 2:
+    There is no repeating subsequence.
+</pre>
+</div>
+</div>
+
+<div class="handler"></div>
+
+<div class="box">
+<pre>
+<code class="language-java line-numbers">public class Solution {
+    public int anytwo(String A) {
+        int ans = lrs(A, A);
+        return  ans &gt= 2 ? ans : 0;
+    }
+    public int lrs(String a, String b) {
+        int[][] dp = new int[a.length()+1][b.length()+1];
+        for (int i=0; i&lt=a.length(); i++) {
+            for (int j=0; j<=b.length(); j++) {
+                if (i == 0 || j == 0)
+                    dp[i][j] = 0;
+                else if (a.charAt(i-1) == b.charAt(j-1) && i != j)
+                    dp[i][j] = dp[i-1][j-1]+1;
+                else
+                    dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
+            }
+        }
+        return dp[a.length()][b.length()];
+    }
+}
+ 
+</code>    
+</pre>
+</div>
+</div>
+    <script src="../script.js"></script>
+    <script src="../prism/prism.js"></script>
+</body>
+</html>

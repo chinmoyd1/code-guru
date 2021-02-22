@@ -66,6 +66,11 @@
             "topic": "Edit Distance",
             "html": "assets/questions/edit-distance.html",
             "difficulty": "medium"
+        },
+		{
+            "topic": "Repeating Sub-sequence",
+            "html": "assets/questions/repeating-sub-sequence.html",
+            "difficulty": "medium"
         }
     ],
     "Graph": [
