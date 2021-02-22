@@ -76,6 +76,11 @@
             "topic": "Distinct Subsequences",
             "html": "assets/questions/distinct-subsequence.html",
             "difficulty": "hard"
+        },		
+		{
+            "topic": "Regular Expression Match",
+            "html": "assets/questions/regular-expression-match.html",
+            "difficulty": "hard"
         }
     ],
     "Graph": [

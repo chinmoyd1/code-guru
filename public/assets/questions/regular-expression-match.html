@@ -1,0 +1,127 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="../prism/prism.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <h1>Regular Expression Match</h1>
+            <hr>
+            <p>Implement wildcard pattern matching with support for ‘?’ and ‘*’ for strings A and B.</p>
+            <ol>
+                <li>’?’ : Matches any single character.</li>
+                <li>‘*’ : Matches any sequence of characters (including the empty sequence).</li>
+            </ol>
+            <strong>Input Format:</strong>
+            <div class="special">
+                <p>The first argument of input contains a string, A.</p>
+                <p>The second argument of input contains a string, B.</p>
+            </div>
+            <strong>Output Format:</strong>
+            <div class="special">
+                <p>0 : If the patterns do not match.</p>
+				<p>1 : If the patterns match.</p>
+            </div>
+            <strong>Constraints:</strong>
+            <div class="special">
+                <p>1 &lt= length(A), length(B) &gt= 9e4</p>
+            </div>
+            <strong>Examples:</strong>
+<div class="special">
+<pre>
+Input 1:
+    A = "aa"
+    B = "a"
+
+Output 1:
+    0
+
+Input 2:
+    A = "aa"
+    B = "aa"
+
+Output 2:
+    1
+
+Input 3:
+    A = "aaa"
+    B = "aa"
+
+Output 3:
+    0
+    
+Input 4:
+    A = "aa"
+    B = "*"
+
+Output 4:
+    1
+
+Input 5:
+    A = "aa"
+    B = "a*"
+
+Output 5:
+    1
+
+Input 6:
+    A = "ab"
+    B = "?*"
+
+Output 6:
+    1
+
+Input 7:
+    A = "aab"
+    B = "c*a*b"
+
+Output 7:
+    0
+</pre>
+</div>
+</div>
+
+<div class="handler"></div>
+
+<div class="box">
+<pre>
+<code class="language-java line-numbers">public class Solution {
+    public int isMatch(final String A, final String B) {
+        return regex(A, B) ? 1: 0;
+    }
+    public boolean regex (String A, String B) {
+        boolean[][] dp = new boolean[A.length()+1][B.length()+1];
+        for (int i=0; i&lt=A.length(); i++) {
+            for (int j=0; j&lt=B.length(); j++) {
+                if (i == 0 && j == 0)
+                    dp[i][j] = true;
+                else if (i == 0) {
+                    if (B.charAt(j-1) == '*')
+                        dp[i][j] = dp[i][j-1];
+                    else
+                        dp[i][j] = false;
+                } else if (j == 0) {
+                    dp[i][j] = false;
+                } else if (A.charAt(i-1) == B.charAt(j-1) || B.charAt(j-1) == '?') {
+                    dp[i][j] = dp[i-1][j-1];
+                } else if (B.charAt(j-1)=='*') {
+                    dp[i][j] = dp[i-1][j] || dp[i][j-1];
+                } else {
+                    dp[i][j] = false;
+                }
+            }
+        }
+        return dp[A.length()][B.length()];
+    }
+    // https://www.youtube.com/watch?v=7SHV_QfVROE&t=710s
+}
+</code>    
+</pre>
+</div>
+</div>
+    <script src="../script.js"></script>
+    <script src="../prism/prism.js"></script>
+</body>
+</html>
