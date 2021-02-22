@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="../prism/prism.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <h1>Regular Expression II</h1>
+            <hr>
+            <p>Implement regular expression matching with support for '.' and '*'.</p>
+            <ol>
+                <li>'.' Matches any single character.</li>
+                <li>'*' Matches zero or more of the preceding element.</li>
+            </ol>
+            <strong>Examples:</strong>
+<div class="special">
+<pre>
+isMatch("aa","a") → 0
+isMatch("aa","aa") → 1
+isMatch("aaa","aa") → 0
+isMatch("aa", "a*") → 1
+isMatch("aa", ".*") → 1
+isMatch("ab", ".*") → 1
+isMatch("aab", "c*a*b") → 1
+</pre>
+</div>
+</div>
+
+<div class="handler"></div>
+
+<div class="box">
+<pre>
+<code class="language-java line-numbers">public class Solution {
+    public int isMatch(final String A, final String B) {
+        return doesMatch(A, B) ? 1 : 0;
+    }
+    public boolean doesMatch(String A, String B) {
+        if (B.length() == 0) return A.length() == 0;
+        // Case 0: First Matches
+        boolean firstMatch = (A.length() &gt 0 && 
+            A.charAt(0) == B.charAt(0) || B.charAt(0) == '.');
+        
+        if (B.length() &gt= 2 && B.charAt(1) == '*') {
+            // Case 1: If first matches
+            // Case 2: If not ignore the regex
+            return doesMatch(A, B.substring(2)) ||
+                (firstMatch && doesMatch(A.substring(1), B));
+        }
+        return firstMatch && doesMatch(A.substring(1), B.substring(1)); 
+    }
+}
+</code>    
+</pre>
+</div>
+</div>
+    <script src="../script.js"></script>
+    <script src="../prism/prism.js"></script>
+</body>
+</html>

@@ -81,6 +81,11 @@
             "topic": "Regular Expression Match",
             "html": "assets/questions/regular-expression-match.html",
             "difficulty": "hard"
+        },
+		{
+            "topic": "Regular Expression Match II",
+            "html": "assets/questions/regular-expression-II.html",
+            "difficulty": "hard"
         }
     ],
     "Graph": [
