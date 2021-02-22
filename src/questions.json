@@ -71,6 +71,11 @@
             "topic": "Repeating Sub-sequence",
             "html": "assets/questions/repeating-sub-sequence.html",
             "difficulty": "medium"
+        },
+		{
+            "topic": "Distinct Subsequences",
+            "html": "assets/questions/distinct-subsequence.html",
+            "difficulty": "hard"
         }
     ],
     "Graph": [

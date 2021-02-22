@@ -1,0 +1,95 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="../prism/prism.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <h1>Distinct Subsequences</h1>
+            <hr>
+            <p>Given two sequences A, B, count number of unique ways in sequence A, to form a subsequence that is identical to the sequence B.</p>
+            <p>Subsequence : A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, “ACE” is a subsequence of “ABCDE” while “AEC” is not).</p>
+            <strong>Input Format:</strong>
+            <div class="special">
+                <p>The first argument of input contains a string, A.</p>
+                <p>The second argument of input contains a string, B.</p>
+            </div>
+            <strong>Output Format:</strong>
+            <div class="special">
+                <p>Return an integer representing the answer as described in the problem statement.</p>
+            </div>
+            <strong>Constraints:</strong>
+            <div class="special">
+                <p>1 &lt= length(A), length(B) &gt= 700</p>
+            </div>
+            <strong>Examples:</strong>
+<div class="special">
+<pre>
+Input 1:
+    A = "abc"
+    B = "abc"
+    
+Output 1:
+    1
+
+Explanation 1:
+    Both the strings are equal.
+
+Input 2:
+    A = "rabbbit" 
+    B = "rabbit"
+
+Output 2:
+    3
+
+Explanation 2:
+    These are the possible removals of characters:
+        => A = "ra_bbit" 
+        => A = "rab_bit" 
+        => A = "rabb_it"
+        
+    Note: "_" marks the removed character.
+</pre>
+</div>
+</div>
+
+<div class="handler"></div>
+
+<div class="box">
+<pre>
+<code class="language-java line-numbers">public class Solution {
+    public int numDistinct(String A, String B) {
+        if(A.length()&ltB.length())
+        return 0;
+        int a[][]=new int[B.length()+1][A.length()+1];
+        for(int i=1;i&ltB.length()+1;i++){
+            a[i][0]=0;
+        }
+        for(int j=0;j&ltA.length()+1;j++){
+            a[0][j]=1;
+        }
+        for(int i=1;i&ltB.length()+1;i++){
+            for(int j=1;j&ltA.length()+1;j++){
+                
+                if(B.charAt(i-1)!=A.charAt(j-1)){
+                    a[i][j]=a[i][j-1];
+                }
+                else{
+                    a[i][j]=a[i][j-1]+a[i-1][j-1];
+                }
+            }
+        }
+        return a[B.length()][A.length()];
+    }
+    //https://www.youtube.com/watch?v=NR9lLQnFjWc
+}
+</code>    
+</pre>
+</div>
+</div>
+    <script src="../script.js"></script>
+    <script src="../prism/prism.js"></script>
+</body>
+</html>
