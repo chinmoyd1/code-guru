@@ -1,0 +1,97 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="../prism/prism.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <h1>Interleaving Strings</h1>
+            <hr>
+            <p>Given A, B, C, find whether C is formed by the interleaving of A and B.</p>
+            <strong>Input Format:</strong>
+            <div class="special">
+                <p>The first argument of input contains a string, A.</p>
+				<p>The second argument of input contains a string, B.</p>
+				<p>The third argument of input contains a string, C.</p>
+            </div>
+            <strong>Output Format:</strong>
+            <div class="special">
+                <p>Return an integer, 0 or 1</p>
+            </div>
+            <strong>Constraints:</strong>
+            <div class="special">
+                <p>1 &lt= length(A), length(B), length(C) &lt= 150</p>
+            </div>
+            <strong>Examples:</strong>
+<div class="special">
+<pre>
+Input 1:
+    A = "aabcc"
+    B = "dbbca"
+    C = "aadbbcbcac"
+
+Output 1:
+    1
+    
+Explanation 1:
+    "aa" (from A) + "dbbc" (from B) + "bc" (from A) + "a" (from B) + "c" (from A)
+
+Input 2:
+    A = "aabcc"
+    B = "dbbca"
+    C = "aadbbbaccc"
+
+Output 2:
+    0
+
+Explanation 2:
+    It is not possible to get C by interleaving A and B.
+</pre>
+</div>
+</div>
+
+<div class="handler"></div>
+
+<div class="box">
+<pre>
+<code class="language-java line-numbers">public class Solution {
+    public int isInterleave(String A, String B, String C) {
+        if (A.length()+B.length() != C.length()) return 0;
+        
+        boolean[][] dp = new boolean[A.length()+1][B.length()+1];
+        dp[0][0] = true;
+        
+        for (int i=1; i<=A.length(); i++) {
+            if (A.charAt(i-1) == C.charAt(i-1))
+                dp[i][0] = dp[i-1][0];
+            else
+                dp[i][0] = false;
+        }
+        for (int j=1; j <= B.length(); j++) {
+            if (B.charAt(j-1) == C.charAt(j-1))
+                dp[0][j] = dp[0][j-1];
+            else
+                dp[0][j] = false;
+        }
+        for (int i=1; i<=A.length(); i++) {
+            for (int j=1; j<=B.length(); j++) {
+                if (C.charAt(i+j-1) == A.charAt(i-1))
+                    dp[i][j] = dp[i-1][j];
+                if (C.charAt(i+j-1) == B.charAt(j-1))
+                    dp[i][j] = dp[i][j] || dp[i][j-1];
+            }
+        }
+        return dp[A.length()][B.length()] ? 1 : 0;
+    }
+    //https://www.youtube.com/watch?v=U49f4WpAhV4
+}
+</code>    
+</pre>
+</div>
+</div>
+    <script src="../script.js"></script>
+    <script src="../prism/prism.js"></script>
+</body>
+</html>
