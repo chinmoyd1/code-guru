@@ -1,0 +1,67 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="../prism/prism.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <h1>Stairs</h1>
+            <hr>
+            <p>GYou are climbing a stair case and it takes A steps to reach to the top.</p>
+			<p>Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?</p>
+            <strong>Input Format:</strong>
+            <div class="special">
+                <p>The first and the only argument contains an integer A, the number of steps.</p>
+            </div>
+            <strong>Output Format:</strong>
+            <div class="special">
+                <p>Return an integer, representing the number of ways to reach the top.</p>
+            </div>
+            <strong>Examples:</strong>
+<div class="special">
+<pre>
+A = 2 
+Output 1: 2 
+Explanation 1: [1, 1], [2] 
+
+Input 2: A = 3 
+Output 2: 3 
+Explanation 2: [1 1 1], [1 2], [2 1]
+</pre>
+</div>
+</div>
+
+<div class="handler"></div>
+
+<div class="box">
+<pre>
+<code class="language-java line-numbers">public class Solution {
+    public int climbStairs(int A) {
+        int[] dp = new dp[A+1];
+        
+        dp[0] = 1;
+        dp[1] = 1;
+        for (int i=2; i&lt=A; i++) {
+            dp[i] = dp[i-1] + dp[i-2];
+        }
+        return dp[A];
+    }
+    public int recurse(int step) {
+        if (step &lt 0)
+            return 0;
+        if (step == 0)
+            return 1;
+        
+        return recurse(step-1) + recurse(step-2);
+    }
+}
+</code>    
+</pre>
+</div>
+</div>
+    <script src="../script.js"></script>
+    <script src="../prism/prism.js"></script>
+</body>
+</html>

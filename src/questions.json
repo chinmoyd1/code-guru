@@ -57,6 +57,11 @@
         }
     ],
     "Dynamic Programming": [
+		{
+            "topic": "Stairs",
+            "html": "assets/questions/stairs.html",
+            "difficulty": "easy"
+		},
         {
             "topic": "Longest Common Subsequence",
             "html": "assets/questions/longest-common-subsequence.html",
@@ -91,7 +96,13 @@
             "topic": "Interleaving String",
             "html": "assets/questions/interleaving-string.html",
             "difficulty": "hard"
+		},
+		{
+            "topic": "Length of Longest Subsequence",
+            "html": "assets/questions/length-of-longest-subsequence.html",
+            "difficulty": "hard"
 		}
+
     ],
     "Graph": [
         {
