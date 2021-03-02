@@ -1,0 +1,85 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="../prism/prism.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <h1>Ways to Decode</h1>
+            <hr>
+            <p>A message containing letters from A-Z is being encoded to numbers using the following mapping:</p>
+            <div class="special">
+<pre>
+    'A' -&gt 1
+    'B' -&gt 2
+    ...
+    'Z' -&gt 26
+</pre>
+            </div>
+            <strong>Input Format:</strong>
+            <div class="special">
+                <p>The first and the only argument is a string A.</p>
+            </div>
+            <strong>Output Format:</strong>
+            <div class="special">
+                <p>Return a single integer denoting the total number of ways to decode it modulo</p>
+            </div>
+            <strong>Examples:</strong>
+<div class="special">
+<pre>
+Input 1:
+    A = "8"
+
+Output 1:
+    1
+
+Explanation 1:
+    Given encoded message "8", it could be decoded as only "H" (8).
+    The number of ways decoding "8" is 1.
+
+Input 2:
+    A = "12"
+
+Output 2:
+    2
+
+Explanation 2:
+    Given encoded message "12", it could be decoded as "AB" (1, 2) or "L" (12).
+    The number of ways decoding "12" is 2.
+</pre>
+</div>
+</div>
+
+<div class="handler"></div>
+
+<div class="box">
+<pre>
+<code class="language-java line-numbers">public class Solution {
+    public int numDecodings(String a) {
+        int[] dp = new int[a.length()+1];
+        
+        dp[0] = 1;
+        dp[1] = a.charAt(0) == '0' ? 0 : 1;
+        
+        for (int i=2; i&lt=a.length(); i++) {
+            int oneDigit = Integer.valueOf(a.substring(i-1, i));
+            int twoDigit = Integer.valueOf(a.substring(i-2, i));
+            
+            if (oneDigit != 0)
+                dp[i] += dp[i-1];
+            if (twoDigit &gt= 10 && twoDigit &lt= 26)
+                dp[i] += dp[i-2];
+        }
+        return dp[a.length()];
+    }
+} 
+</code>    
+</pre>
+</div>
+</div>
+    <script src="../script.js"></script>
+    <script src="../prism/prism.js"></script>
+</body>
+</html>

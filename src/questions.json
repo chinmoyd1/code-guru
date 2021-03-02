@@ -58,25 +58,35 @@
     ],
     "Dynamic Programming": [
 		{
-            "topic": "Stairs",
+            "topic": "Stairs (Fibonnaci)",
             "html": "assets/questions/stairs.html",
             "difficulty": "easy"
 		},
         {
-            "topic": "Longest Common Subsequence",
+            "topic": "Ways to Decode (Fibonnaci)",
+            "html": "assets/questions/ways-to-decode.html",
+            "difficulty": "easy"
+		},
+        {
+            "topic": "Longest Common Subsequence (LCS)",
             "html": "assets/questions/longest-common-subsequence.html",
             "difficulty": "easy"
         },
         {
-            "topic": "Edit Distance",
-            "html": "assets/questions/edit-distance.html",
-            "difficulty": "medium"
-        },
-		{
-            "topic": "Repeating Sub-sequence",
+            "topic": "Repeating Sub-sequence (LCS)",
             "html": "assets/questions/repeating-sub-sequence.html",
             "difficulty": "medium"
         },
+        {
+            "topic": "Edit Distance (ED)",
+            "html": "assets/questions/edit-distance.html",
+            "difficulty": "medium"
+        },
+        {
+            "topic": "Length of Longest Subsequence (LIS)",
+            "html": "assets/questions/length-of-longest-subsequence.html",
+            "difficulty": "hard"
+		},
 		{
             "topic": "Distinct Subsequences",
             "html": "assets/questions/distinct-subsequence.html",
@@ -96,13 +106,7 @@
             "topic": "Interleaving String",
             "html": "assets/questions/interleaving-string.html",
             "difficulty": "hard"
-		},
-		{
-            "topic": "Length of Longest Subsequence",
-            "html": "assets/questions/length-of-longest-subsequence.html",
-            "difficulty": "hard"
 		}
-
     ],
     "Graph": [
         {
