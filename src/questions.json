@@ -67,6 +67,11 @@
             "html": "assets/questions/ways-to-decode.html",
             "difficulty": "easy"
 		},
+		{
+            "topic": "Jump Game Array",
+            "html": "assets/questions/jump-game-array.html",
+            "difficulty": "medium"
+		},
         {
             "topic": "Longest Common Subsequence (LCS)",
             "html": "assets/questions/longest-common-subsequence.html",
