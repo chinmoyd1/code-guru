@@ -78,15 +78,20 @@
             "difficulty": "medium"
         },
         {
+            "topic": "Longest Increasing Subsequence (LIS)",
+            "html": "assets/questions/longest-increasing-subsequence.html",
+            "difficulty": "easy"
+		},
+        {
+            "topic": "Length of Longest Subsequence (LIS)",
+            "html": "assets/questions/length-of-longest-subsequence.html",
+            "difficulty": "medium"
+		},
+        {
             "topic": "Edit Distance (ED)",
             "html": "assets/questions/edit-distance.html",
             "difficulty": "medium"
         },
-        {
-            "topic": "Length of Longest Subsequence (LIS)",
-            "html": "assets/questions/length-of-longest-subsequence.html",
-            "difficulty": "hard"
-		},
 		{
             "topic": "Distinct Subsequences",
             "html": "assets/questions/distinct-subsequence.html",
