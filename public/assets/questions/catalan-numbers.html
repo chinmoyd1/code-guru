@@ -1,0 +1,79 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="../prism/prism.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <h1>Catalan Number</h1>
+            <hr>
+            <p>Catalan numbers are a sequence of natural numbers that occurs in many interesting counting problems like following.</p>
+            <p>Subsequence : A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, “ACE” is a subsequence of “ABCDE” while “AEC” is not).</p>
+			
+			<h1>Similar Questions</h1>
+			<strong>Number of BSTs</strong>
+				<div class="special">
+					<p>C(n)</p>
+				</div>
+			<strong>N Paranthesis</strong>
+				<div class="special">
+					<p>C(n)</p>
+				</div>
+			<strong>Dyck Word</strong>
+				<div class="special">
+					<p>C(n)</p>
+				</div>
+			<strong>Mountain Ranges</strong>
+				<div class="special">
+					<p>C(n)</p>
+				</div>
+			<strong>Path on Grid</strong>
+				<div class="special">
+					<p>C(n)</p>
+				</div>
+			<strong>Convex Polygon / Number of ways of Triangulation</strong>
+				<div class="special">
+					<p>C(n-2)</p>
+				</div>
+			<strong>Connect Disjoint Chords</strong>
+				<div class="special">
+					<p>C(n)</p>
+				</div>
+	</div>
+
+<div class="handler"></div>
+
+<div class="box">
+<pre>
+<code class="language-java line-numbers">// C(n) = C(0)C(n-1) + C(1)(n-2) .... C(n-1)C(0)
+    static int catalanNumber (int n) {
+        if (n &lt= 1) return 1;
+        int sum = 0;
+        for (int i=0; i&ltn; i++) {
+            sum += catalanNumber(i)*catalanNumber(n-i-1);
+        }
+        return sum;
+    }
+    // https://www.youtube.com/watch?v=0pTN0qzpt-Y
+    // 1, 1, 2, 5, 14, 42, 132...
+    static int catalanNumberDP (int n) {
+        int dp[]= new int[n+1];
+        dp[0] = 1;
+        dp[1] = 1;
+        for (int i=2; i&lt=n; i++) {
+            for (int j=0; j&lti; j++) {
+                dp[i] += dp[j] * dp[i-j-1];
+            }
+        }
+        return dp[n];
+    }
+</code>    
+</pre>
+</div>
+</div>
+    <script src="../script.js"></script>
+    <script src="../prism/prism.js"></script>
+</body>
+</html>

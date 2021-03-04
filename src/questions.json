@@ -116,6 +116,11 @@
             "topic": "Interleaving String",
             "html": "assets/questions/interleaving-string.html",
             "difficulty": "hard"
+		},		
+		{
+            "topic": "Catalan Numbers",
+            "html": "assets/questions/catalan-numbers.html",
+            "difficulty": "easy"
 		}
     ],
     "Graph": [
