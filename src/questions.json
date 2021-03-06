@@ -10,6 +10,11 @@
             "html": "assets/questions/smallest-subarray-with-a-given-sum.html",
             "difficulty": "easy"
         },
+		{
+            "topic": "Longest Arithmetic Progression",
+            "html": "assets/questions/longest-arithmetic-progression.html",
+            "difficulty": "medium"
+        },
         {
             "topic": "Longest Substring With K Distinct Characters",
             "html": "assets/questions/longest-substring-with-k-distinct-characters.html",
@@ -71,7 +76,12 @@
             "topic": "Jump Game Array",
             "html": "assets/questions/jump-game-array.html",
             "difficulty": "medium"
-		},
+		},		
+		{
+            "topic": "Catalan Numbers",
+            "html": "assets/questions/catalan-numbers.html",
+            "difficulty": "easy"
+		}
         {
             "topic": "Longest Common Subsequence (LCS)",
             "html": "assets/questions/longest-common-subsequence.html",
@@ -116,11 +126,6 @@
             "topic": "Interleaving String",
             "html": "assets/questions/interleaving-string.html",
             "difficulty": "hard"
-		},		
-		{
-            "topic": "Catalan Numbers",
-            "html": "assets/questions/catalan-numbers.html",
-            "difficulty": "easy"
 		}
     ],
     "Graph": [

@@ -1,0 +1,75 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="../prism/prism.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <h1>Longest Arithmetic Progression</h1>
+            <hr>
+            <p>Find longest Arithmetic Progression in an integer array A of size N, and return its length.</p>
+			<p><strong>Note:</strong> The common difference can be positive, negative or 0.</p>
+            <strong>Input Format:</strong>
+            <div class="special">
+                <p>The first and the only argument of input contains an integer array, A.</p>
+            </div>
+            <strong>Output Format:</strong>
+            <div class="special">
+                <p>Return an integer, representing the length of the longest possible arithmetic progression.</p>
+            </div>
+            <strong>Examples:</strong>
+<div class="special">
+<pre>
+Input 1:
+    A = [3, 6, 9, 12]
+
+Output 1:
+    4
+
+Explanation 1:
+    [3, 6, 9, 12] form an arithmetic progression.
+
+Input 2:
+    A = [9, 4, 7, 2, 10]
+
+Output 2:
+    3
+
+Explanation 2:
+    [4, 7, 10] form an arithmetic progression.
+</pre>
+</div>
+</div>
+
+<div class="handler"></div>
+
+<div class="box">
+<pre>
+<code class="language-java line-numbers">public class Solution {
+    public int solve(final List&ltInteger&gt A) {
+        if (A.size() &lt= 1) return A.size();
+        HashMap&ltInteger, Integer&gt[] dp = new HashMap[A.size()];
+        int max = -1;
+        for(int i=0; i&ltA.size(); i++) {
+            dp[i] = new HashMap&ltInteger, Integer&gt();
+            for(int j=0; j&lti; j++) {
+                int diff = A.get(j) - A.get(i);
+                HashMap&ltInteger, Integer&gt prev = dp[j];
+                dp[i].put(diff, prev.getOrDefault(diff, 0)+1);
+                
+                max = Math.max(dp[i].get(diff), max);
+            }
+        }
+        return max+1;
+    }
+} 
+</code>    
+</pre>
+</div>
+</div>
+    <script src="../script.js"></script>
+    <script src="../prism/prism.js"></script>
+</body>
+</html>
